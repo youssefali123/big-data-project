@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Engine</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #060b0e;
+      /* background: linear-gradient(to right, #868383, #74dae7); */
+      background-color: #f8f7f5;
+      /* background-size: cover; */
+      background-image: url("https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+      background-image: url("2.jpg");
+    }
+    .continar{
+      width: max(300px, 50%);
+    min-height: 300px;
+    background-color: #3c5f5b47;
+    background-color: #002b35f7;
+    /* background-image: url("https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"); */
+    margin: 8px auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    padding: 30px 10px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 2px 2px 7px #555555;
+    }
+    .continar h1{
+      background: linear-gradient(45deg, #be0606, #c9c509);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .continar .searchArea{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .continar .searchArea input, .continar .searchArea button{
+      width: 80%;
+      padding: 16px;
+      border-radius: 50px;
+      outline: none;
+      border: none;
+      font-weight: bold;
+      font-size: 1.4rem;
+      border: 2px solid gray;
+      transition: all 0.1s ease-in;
+    }
+    .continar .searchArea button{
+      width: fit-content;
+      
+    }
+    .continar .searchArea button:hover{
+      cursor: pointer;
+      background-color: #be0606;
+      color: white;
+      transform: scaleX(1.06);
+    }
+    .continar .searchArea input:focus{
+      border: 2px solid rgb(59, 236, 5);
+      transform: scaleX(1.03);
+    }
+    .results{
+      width: 98%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    
+    gap: 10px;
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 5px;
+    /* background-color: rgb(1 7 8); */
+    }
+    .results .item{
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #042f31;
+    background-color: #121518;
+    padding: 10px 4px;
+    border-radius: 10px;
+    border-left: 2px solid rgb(1 7 8);
+    transition: all 0.1s ease-in-out;
+    }
+    .results .item:hover{
+      cursor: pointer;
+      transform: translateY(-3px);
+      box-shadow: 2px 2px 7px #555555;
+    }
+    .results .item .main{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 3px;
+      width: 100%;
+    }
+    .results .item .main .icon img{
+      width: 30px;
+    }
+    .results .item .main .url{
+      color: white;
+      font-size: 1.3rem;
+      max-width: 95%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .results .item .title{
+      color: #7a7f8b;
+      font-size: 1.2rem;
+    }
+    .results .item .title:hover{
+      text-decoration: underline;
+      color: rgb(3, 118, 138);
+    }
+  </style>
+</head>
+<body>
+  <div class="continar">
+    <h1>Big Data Project</h1>
+    <div class="searchArea">
+      <input type="text" name="search" id="searchInput" placeholder="enter a word to search...">
+      <button id="searchBtn">search</button>
+
+    </div>
+
+  </div>
+  <div class="results">
+
+    <!-- <div class="item">
+      <div class="main">
+        <div class="icon">
+          <img src="https://www.w3schools.com/favicon.ico" alt="">
+        </div>
+        <div class="url">htpps://cdcdcd.vedvdvav</div>
+      </div>
+      <div class="title">vuijanjvnan v</div>
+    </div>
+    <div class="item">
+      <div class="main">
+        <div class="icon">
+          <img src="https://www.w3schools.com/favicon.ico" alt="">
+        </div>
+        <div class="url">htpps://cdcdcd.vedvdvav</div>
+      </div>
+      <div class="title">vuijanjvnan v</div>
+    </div>
+    <div class="item" id="item" link="https://www.google.com">
+      <div class="main">
+        <div class="icon">
+          <img src="https://www.w3schools.com/favicon.ico" alt="">
+        </div>
+        <div class="url">htpps://cdcdcd.vedvdvav</div>
+      </div>
+      <div class="title">vuijanjvnan link   v</div>
+    </div>
+    <div class="item">
+      <div class="main">
+        <div class="icon">
+          <img src="https://www.w3schools.com/favicon.ico" alt="">
+        </div>
+        <div class="url">htpps://cdcdcd.vedvdvav</div>
+      </div>
+      <div class="title">vuijanjvnan v</div>
+    </div>
+    <div class="item">
+      <div class="main">
+        <div class="icon">
+          <img src="https://www.w3schools.com/favicon.ico" alt="">
+        </div>
+        <div class="url">htpps://cdcdcd.vedvdvav</div>
+      </div>
+      <div class="title">vuijanjvnan v</div>
+    </div>
+    <div class="item">
+      <div class="main">
+        <div class="icon">
+          <img src="https://www.w3schools.com/favicon.ico" alt="">
+        </div>
+        <div class="url">htpps://cdcdcd.vedvdvav</div>
+      </div>
+      <div class="title">vuijanjvnan v</div>
+    </div> -->
+    
+  </div>
+
+  <script>
+    // async function search() {
+    //   const query = document.getElementById('searchInput').value;
+    //   if (!query) return alert("Please enter a word");
+  
+    //   const res = await fetch(`http://localhost:3000/search?q=${query}`);
+    //   const data = await res.json();
+  
+    //   const results = document.getElementById('results');
+    //   results.innerHTML = '';
+    //   data.results.forEach(url => {
+    //     const li = document.createElement('li');
+    //     const a = document.createElement('a');
+    //     a.href = url;
+    //     a.textContent = url;
+    //     a.target = "_blank";
+    //     li.appendChild(a);
+    //     results.appendChild(li);
+    //   });
+    // }
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+    let results = document.querySelector(".results");
+    function display(url, title, icon){
+      
+      let item = document.createElement("div");
+      item.classList.add("item");
+      item.setAttribute("link", url);
+      item.innerHTML = `
+      <div class="main">
+        <div class="icon">
+          <img src="${icon}" alt="">
+        </div>
+        <div class="url">${url}</div>
+      </div>
+      <div class="title">${title}</div>
+      `;
+      results.appendChild(item);
+    }
+    async function search(){
+      const word = searchInput.value;
+      fetch(`http://localhost:3000/search?q=${word}`).then( (res) =>{
+        return res.json()
+      }).then( (data) =>{
+        console.log(data);
+        console.log(data.length);
+        results.innerHTML = "";
+        for(let i = 0; i < data.length; i++){
+          display(data[i].url, data[i].title, data[i].icon);
+        }
+      })
+    }
+    searchBtn.addEventListener("click" , ()=>{
+      search()
+    });
+    // let item = document.getElementById("item");
+    // item.addEventListener("click", ()=>{
+    //   let link = item.getAttribute("link");
+    //   let a = document.createElement("a");
+    //   a.href = link;
+    //   a.target = "_self";
+    //   a.click();
+      
+    // })
+    document.addEventListener("click", (e) => {
+      if(e.target.classList.contains("item") || e.target.classList.contains("url") || e.target.classList.contains("title") || e.target.classList.contains("icon") || e.target.tagName === "IMG"){
+        // let link = e.target.getAttribute("link");
+        let link = e.target.parentElement.getAttribute("link") || e.target.getAttribute("link") || e.target.parentElement.parentElement.getAttribute("link") || e.target.parentElement.parentElement.parentElement.getAttribute("link");
+        let a = document.createElement("a");
+        a.href = link;
+        a.target = "_blank";
+        a.click();
+      }
+    })
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Enter"){
+        search();
+      }
+    })
+  </script>
+  
+</body>
+</html>
